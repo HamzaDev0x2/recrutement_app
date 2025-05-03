@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Liste des feedbacks</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</head>
+<body class="container mt-4">
+<h2>Liste des feedbacks</h2>
+<a th:href="@{/feedbacks/ajouter}" class="btn btn-primary mb-3">Ajouter un feedback</a>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Note</th>
+    <th>Commentaire</th>
+    <th>Date</th>
+    <th>Candidature</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="f : ${feedbacks}">
+    <td th:text="${f.id}"></td>
+    <td th:text="${f.note}"></td>
+    <td th:text="${f.commentaire}"></td>
+    <td th:text="${f.date}"></td>
+    <td th:text="${f.candidature.id}"></td>
+    <td>
+      <a th:href="@{'/feedbacks/' + ${f.id}}" class="btn btn-info btn-sm">Détails</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

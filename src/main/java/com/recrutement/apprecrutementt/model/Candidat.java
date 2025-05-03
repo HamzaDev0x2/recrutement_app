@@ -11,6 +11,7 @@ public class Candidat {
     private Long id;
 
     private String nom;
+    private String prenom; // <-- ajouté
     private String email;
     private String motDePasse;
     private String telephone;
@@ -22,8 +23,9 @@ public class Candidat {
     // --- Constructeurs ---
     public Candidat() {}
 
-    public Candidat(String nom, String email, String motDePasse, String telephone, String cvUrl) {
+    public Candidat(String nom, String prenom, String email, String motDePasse, String telephone, String cvUrl) {
         this.nom = nom;
+        this.prenom = prenom;
         this.email = email;
         this.motDePasse = motDePasse;
         this.telephone = telephone;
@@ -46,6 +48,14 @@ public class Candidat {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getEmail() {

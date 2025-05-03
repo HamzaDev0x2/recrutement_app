@@ -1,7 +1,8 @@
 package com.recrutement.apprecrutementt.controller;
-
+import com.recrutement.apprecrutementt.model.Candidature;
 import com.recrutement.apprecrutementt.model.Feedback;
 import com.recrutement.apprecrutementt.service.FeedbackService;
+import com.recrutement.apprecrutementt.service.CandidatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,17 +24,25 @@ public class FeedbackController {
         return "feedbacks/liste";
     }
 
+    @Autowired
+    private CandidatureService candidatureService;
+
     @GetMapping("/ajouter")
     public String afficherFormulaireAjout(Model model) {
         model.addAttribute("feedback", new Feedback());
+        model.addAttribute("candidatures", candidatureService.getAllCandidatures());
         return "feedbacks/formulaire";
     }
 
+
     @PostMapping("/ajouter")
-    public String enregistrerFeedback(@ModelAttribute Feedback feedback) {
+    public String enregistrerFeedback(@ModelAttribute Feedback feedback, @RequestParam Long candidature) {
+        Candidature c = candidatureService.getCandidatureById(candidature);
+        feedback.setCandidature(c);
         feedbackService.saveFeedback(feedback);
         return "redirect:/feedbacks";
     }
+
 
     @GetMapping("/{id}")
     public String voirFeedback(@PathVariable Long id, Model model) {

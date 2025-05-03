@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter un Candidat</title>
+</head>
+<body>
+<h1>Ajouter un Candidat</h1>
+<form th:action="@{/candidats/ajouter}" method="post" th:object="${candidat}">
+    <label>Nom :</label>
+    <input type="text" th:field="*{nom}" /><br/>
+    <label>Email :</label>
+    <input type="email" th:field="*{email}" /><br/>
+    <label>Mot de passe :</label>
+    <input type="password" th:field="*{motDePasse}" /><br/>
+    <label>Téléphone :</label>
+    <input type="text" th:field="*{telephone}" /><br/>
+    <label>CV URL :</label>
+    <input type="text" th:field="*{cvUrl}" /><br/>
+    <button type="submit">Enregistrer</button>
+</form>
+</body>
+</html>

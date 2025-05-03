@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Ajouter une Offre</title>
+</head>
+<body>
+<h1>Ajouter une Offre d'Emploi</h1>
+<form th:action="@{/offres/ajouter}" th:object="${offre}" method="post">
+  <label>Titre:</label>
+  <input type="text" th:field="*{titre}" /><br/>
+
+  <label>Description:</label>
+  <textarea th:field="*{description}"></textarea><br/>
+
+  <label>Date de publication:</label>
+  <input type="date" th:field="*{datePublication}" /><br/>
+
+  <label>Entreprise:</label>
+  <select th:field="*{entreprise.id}">
+    <option th:each="entreprise : ${entreprises}"
+            th:value="${entreprise.id}"
+            th:text="${entreprise.nom}">Entreprise</option>
+  </select><br/>
+
+  <button type="submit">Enregistrer</button>
+</form>
+
+</body>
+</html>

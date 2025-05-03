@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste des candidatures</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Liste des candidatures</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Offre</th>
+    <th>Candidat</th>
+    <th>Date</th>
+    <th>Statut</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="c : ${candidatures}">
+    <td th:text="${c.id}">1</td>
+    <td th:text="${c.offreEmploi.titre}">Titre Offre</td>
+    <td th:text="${c.candidat.prenom} + ' ' + ${c.candidat.nom}">Nom Candidat</td>
+    <td th:text="${c.dateCandidature}">2025-05-01</td>
+    <td th:text="${c.statut}">En attente</td>
+    <td>
+      <a th:href="@{'/candidatures/modifier/' + ${c.id}}">Modifier</a> |
+      <a th:href="@{'/candidatures/supprimer/' + ${c.id}}"
+         onclick="return confirm('Êtes-vous sûr ?')">Supprimer</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a th:href="@{/candidatures/ajouter}">Ajouter une candidature</a>
+</body>
+</html>

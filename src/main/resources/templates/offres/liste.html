@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Offres</title>
+</head>
+<body>
+<h1>Liste des Offres d'Emploi</h1>
+<a th:href="@{/offres/ajouter}">Ajouter une offre</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Date de publication</th>
+        <th>Entreprise</th>
+        <th>Détails</th>
+    </tr>
+    <tr th:each="offre : ${offres}">
+        <td th:text="${offre.id}"></td>
+        <td th:text="${offre.titre}"></td>
+        <td th:text="${offre.datePublication}"></td>
+        <td th:text="${offre.entreprise?.nom}"></td>
+        <td><a th:href="@{/offres/{id}(id=${offre.id})}">Voir</a></td>
+    </tr>
+</table>
+</body>
+</html>

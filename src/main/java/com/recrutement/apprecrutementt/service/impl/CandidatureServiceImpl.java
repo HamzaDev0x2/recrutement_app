@@ -1,16 +1,28 @@
 package com.recrutement.apprecrutementt.service.impl;
 
 import com.recrutement.apprecrutementt.model.Candidature;
+import com.recrutement.apprecrutementt.model.Candidat;
+import com.recrutement.apprecrutementt.model.OffreEmploi;
 import com.recrutement.apprecrutementt.repository.CandidatureRepository;
+import com.recrutement.apprecrutementt.repository.CandidatRepository;
+import com.recrutement.apprecrutementt.repository.OffreEmploiRepository;
 import com.recrutement.apprecrutementt.service.CandidatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
 public class CandidatureServiceImpl implements CandidatureService {
+
     @Autowired
     private CandidatureRepository candidatureRepository;
+
+    @Autowired
+    private CandidatRepository candidatRepository;
+
+    @Autowired
+    private OffreEmploiRepository offreEmploiRepository;
 
     @Override
     public Candidature saveCandidature(Candidature candidature) {
@@ -30,5 +42,15 @@ public class CandidatureServiceImpl implements CandidatureService {
     @Override
     public void deleteCandidature(Long id) {
         candidatureRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Candidat> getAllCandidats() {
+        return candidatRepository.findAll();
+    }
+
+    @Override
+    public List<OffreEmploi> getAllOffresEmploi() {
+        return offreEmploiRepository.findAll();
     }
 }

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Détails Candidat</title>
+</head>
+<body>
+<h1 th:text="${candidat.nom}">Nom</h1>
+<p>Email : <span th:text="${candidat.email}"></span></p>
+<p>Téléphone : <span th:text="${candidat.telephone}"></span></p>
+<p>CV : <a th:href="${candidat.cvUrl}" target="_blank">Voir le CV</a></p>
+<a th:href="@{/candidats}">Retour à la liste</a>
+</body>
+</html>

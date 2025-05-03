@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Détails de l’entreprise</title>
+</head>
+<body>
+<h1>Détails de l’entreprise</h1>
+<p><strong>Nom :</strong> <span th:text="${entreprise.nom}"></span></p>
+<p><strong>Secteur :</strong> <span th:text="${entreprise.secteur}"></span></p>
+<p><strong>Email :</strong> <span th:text="${entreprise.email}"></span></p>
+<p><strong>Site Web :</strong> <span th:text="${entreprise.siteWeb}"></span></p>
+<a th:href="@{/entreprises}">Retour à la liste</a>
+</body>
+</html>

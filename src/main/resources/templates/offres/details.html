@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Détails de l'Offre</title>
+</head>
+<body>
+<h1>Détails de l'Offre</h1>
+<p><strong>ID :</strong> <span th:text="${offre.id}"></span></p>
+<p><strong>Titre :</strong> <span th:text="${offre.titre}"></span></p>
+<p><strong>Description :</strong> <span th:text="${offre.description}"></span></p>
+<p><strong>Date de publication :</strong> <span th:text="${offre.datePublication}"></span></p>
+<p><strong>Entreprise :</strong> <span th:text="${offre.entreprise.nom}"></span></p>
+<a th:href="@{/offres}">Retour à la liste</a>
+</body>
+</html>

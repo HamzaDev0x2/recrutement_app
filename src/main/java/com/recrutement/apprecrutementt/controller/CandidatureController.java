@@ -26,8 +26,11 @@ public class CandidatureController {
     @GetMapping("/ajouter")
     public String afficherFormulaireAjout(Model model) {
         model.addAttribute("candidature", new Candidature());
+        model.addAttribute("candidats", candidatureService.getAllCandidats());
+        model.addAttribute("offres", candidatureService.getAllOffresEmploi());
         return "candidatures/formulaire";
     }
+
 
     @PostMapping("/ajouter")
     public String enregistrerCandidature(@ModelAttribute Candidature candidature) {

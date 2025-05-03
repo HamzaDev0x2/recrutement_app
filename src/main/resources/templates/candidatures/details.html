@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Détails de la candidature</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</head>
+<body class="container mt-4">
+<h2>Détails de la candidature</h2>
+
+<div class="mb-3">
+  <strong>ID :</strong> <span th:text="${candidature.id}"></span><br>
+  <strong>Candidat :</strong> <span th:text="${candidature.candidat.nom} + ' ' + ${candidature.candidat.prenom}"></span><br>
+  <strong>Offre :</strong> <span th:text="${candidature.offreEmploi.titre}"></span><br>
+  <strong>Date :</strong> <span th:text="${candidature.dateCandidature}"></span><br>
+  <strong>Statut :</strong> <span th:text="${candidature.statut}"></span><br>
+</div>
+
+<a href="/candidatures" class="btn btn-secondary">Retour à la liste</a>
+</body>
+</html>

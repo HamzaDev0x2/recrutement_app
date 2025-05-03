@@ -17,6 +17,54 @@ public class Candidature {
     @JoinColumn(name = "candidat_id")
     private Candidat candidat;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDateCandidature() {
+        return dateCandidature;
+    }
+
+    public void setDateCandidature(LocalDate dateCandidature) {
+        this.dateCandidature = dateCandidature;
+    }
+
+    public Candidat getCandidat() {
+        return candidat;
+    }
+
+    public void setCandidat(Candidat candidat) {
+        this.candidat = candidat;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    public OffreEmploi getOffreEmploi() {
+        return offreEmploi;
+    }
+
+    public void setOffreEmploi(OffreEmploi offreEmploi) {
+        this.offreEmploi = offreEmploi;
+    }
+
+    public Feedback getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(Feedback feedback) {
+        this.feedback = feedback;
+    }
+
     @ManyToOne
     @JoinColumn(name = "offre_id")
     private OffreEmploi offreEmploi;

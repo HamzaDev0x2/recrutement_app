@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Candidats</title>
+</head>
+<body>
+<h1>Liste des Candidats</h1>
+<a th:href="@{/candidats/ajouter}">Ajouter un candidat</a>
+<ul>
+    <li th:each="candidat : ${candidats}">
+        <a th:href="@{'/candidats/' + ${candidat.id}}"
+           th:text="${candidat.nom} + ' - ' + ${candidat.email}">Candidat</a>
+    </li>
+</ul>
+</body>
+</html>

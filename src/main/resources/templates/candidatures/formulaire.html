@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter une candidature</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</head>
+<body class="container mt-4">
+<h2>Ajouter une candidature</h2>
+
+<form th:action="@{/candidatures/ajouter}" th:object="${candidature}" method="post">
+    <div class="mb-3">
+        <label class="form-label">Candidat :</label>
+        <select th:field="*{candidat.id}" class="form-select" required>
+            <option th:each="c : ${candidats}"
+                    th:value="${c.id}"
+                    th:text="${c.nom + ' ' + c.prenom}">
+            </option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Offre d'emploi :</label>
+        <select th:field="*{offreEmploi.id}" class="form-select" required>
+            <option th:each="o : ${offres}"
+                    th:value="${o.id}"
+                    th:text="${o.titre}">
+            </option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Date de candidature :</label>
+        <input type="date" th:field="*{dateCandidature}" class="form-control" required/>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Statut :</label>
+        <select th:field="*{statut}" class="form-select" required>
+            <option value="EN_ATTENTE">En attente</option>
+            <option value="ACCEPTEE">Acceptée</option>
+            <option value="REFUSEE">Refusée</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+    <a th:href="@{/candidatures}" class="btn btn-secondary">Annuler</a>
+</form>
+</body>
+</html>

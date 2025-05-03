@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des entreprises</title>
+</head>
+<body>
+<h1>Entreprises</h1>
+<a th:href="@{/entreprises/ajouter}">Ajouter une entreprise</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Secteur</th>
+        <th>Email</th>
+        <th>Site Web</th>
+        <th>Détail</th>
+    </tr>
+    <tr th:each="entreprise : ${entreprises}">
+        <td th:text="${entreprise.id}"></td>
+        <td th:text="${entreprise.nom}"></td>
+        <td th:text="${entreprise.secteur}"></td>
+        <td th:text="${entreprise.email}"></td>
+        <td th:text="${entreprise.siteWeb}"></td>
+        <td><a th:href="@{/entreprises/{id}(id=${entreprise.id})}">Voir</a></td>
+    </tr>
+</table>
+</body>
+</html>
